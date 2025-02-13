@@ -29,6 +29,7 @@ public class FileServiceImpl implements FileService {
 
             boolean bucketExists = minioClient.bucketExists(BucketExistsArgs.builder().bucket(properties.getBucketName()).build());
             if (!bucketExists) {
+                //创建桶
                 minioClient.makeBucket(MakeBucketArgs.builder().bucket(properties.getBucketName()).build());
                 minioClient.setBucketPolicy(SetBucketPolicyArgs.builder().bucket(properties.getBucketName()).config(createBucketPolicyConfig(properties.getBucketName())).build());
             }

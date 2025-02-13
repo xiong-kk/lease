@@ -31,6 +31,7 @@ public class FileServiceImpl implements FileService {
             if (!bucketExists) {
                 //创建桶
                 minioClient.makeBucket(MakeBucketArgs.builder().bucket(properties.getBucketName()).build());
+                //为桶设置权限
                 minioClient.setBucketPolicy(SetBucketPolicyArgs.builder().bucket(properties.getBucketName()).config(createBucketPolicyConfig(properties.getBucketName())).build());
             }
 
@@ -45,6 +46,7 @@ public class FileServiceImpl implements FileService {
 
     }
 
+    //桶的权限配置，当前为所有用户可读，默认只能自己写不需要配置
     private String createBucketPolicyConfig(String bucketName) {
 
         return """

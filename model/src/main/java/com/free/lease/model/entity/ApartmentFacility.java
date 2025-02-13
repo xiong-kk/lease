@@ -9,6 +9,7 @@ import lombok.Data;
 @Schema(description = "公寓&配套关系")
 @TableName(value = "apartment_facility")
 @Data
+//加了builder注解后不能new来创建对象,可以使用builder().build来创建
 @Builder
 public class ApartmentFacility extends BaseEntity {
 

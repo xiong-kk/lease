@@ -6,6 +6,8 @@ import com.free.lease.model.enums.LeaseStatus;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.free.lease.web.admin.vo.apartment.ApartmentItemVo;
+import com.free.lease.web.admin.vo.apartment.ApartmentQueryVo;
 
 /**
 * @author liubo
@@ -15,6 +17,7 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 */
 public interface ApartmentInfoMapper extends BaseMapper<ApartmentInfo> {
 
+    IPage<ApartmentItemVo> pageItem(Page<ApartmentItemVo> page, ApartmentQueryVo queryVo);
 }
 
 
